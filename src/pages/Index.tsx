@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import Container from '../shared/components/Container/Container';
 import Chart from '../feature/Chart/components/Chart/Chart';
 import ChartInput from '../feature/Chart/components/ChartInput/ChartInput';
@@ -8,7 +8,7 @@ import {
     normalizeYAxisInputData,
 } from '../shared/utils/helpers';
 import ChartRadioSelect from '../feature/Chart/components/ChartRadioSelect/ChartRadioSelect';
-import { ChartTypes } from '../shared/types/chart';
+import { chartType, ChartTypes } from '../shared/types/chart';
 
 const initialChartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -17,26 +17,28 @@ const initialChartData = {
 
 export default function Index() {
     const [chartData, setChartData] = useState(initialChartData);
-    const [chartType, setChartType] = useState<ChartTypes>(ChartTypes.BAR);
+    const [chartTypeValue, setChartTypeValue] = useState<chartType>(
+        ChartTypes.BAR
+    );
 
-    const onSubmit = (e) => {
-        const labels = normalizeXAxisInputData(e.x);
-        const data = normalizeYAxisInputData(e.y);
+    const onSubmit = ({ x, y }: { x: string; y: string }) => {
+        const labels = normalizeXAxisInputData(x);
+        const data = normalizeYAxisInputData(y);
 
         if (isInputArraysLengthValid(labels, data)) {
-            setChartData({ labels: labels, data: data });
+            setChartData({ labels, data });
         }
     };
 
-    const onChangeChartType = (e) => {
-        setChartType(e.target.value);
+    const onChangeChartType = (e: ChangeEvent<HTMLInputElement>) => {
+        setChartTypeValue(e.target.value as chartType);
     };
 
     return (
         <Container>
             <ChartInput onSubmit={onSubmit} />
             <Chart
-                chartTypeValue={chartType}
+                chartTypeValue={chartTypeValue}
                 chartData={chartData.data}
                 chartLabels={chartData.labels}
             />

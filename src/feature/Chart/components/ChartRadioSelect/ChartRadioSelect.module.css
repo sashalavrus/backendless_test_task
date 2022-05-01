@@ -5,12 +5,21 @@
     align-items: center;
 }
 
+.chartRadioSelectWrapper > label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+    font-family: Roboto sans-serif;
+}
+
+
 .radioInput {
     width: 32px;
     height: 32px;
     border-radius: 100%;
     border: 1px #c4c4c4 solid;
-    margin-right: 24px;
+    margin-right: 8px;
 }
 
 .radioInput:checked {

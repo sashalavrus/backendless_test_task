@@ -1,5 +1,5 @@
-import { chartType, ChartTypes } from '../../../shared/types/chart';
-import { getRandomRGBColorArray } from '../../../shared/utils/helpers';
+import { chartType, ChartTypes } from 'shared/types/chart';
+import { getRandomRGBColorArray } from 'shared/utils/helpers';
 
 type useChartDataProps = {
     chartLabels: Array<string>;
@@ -50,6 +50,7 @@ export default function useChartData({
                         data: chartData,
                         backgroundColor: 'rgba(48, 213, 200, 0.5)',
                         borderColor: 'rgb(48, 213, 200)',
+                        borderWidth: 6,
                     },
                 ],
             };
@@ -70,6 +71,7 @@ export default function useChartData({
                 labels: chartLabels,
                 datasets: [
                     {
+                        label: 'Data representation',
                         data: chartData,
                         backgroundColor: colorArrayWithOpacity[0],
                         borderColor: colorArrayWithOpacity[0],

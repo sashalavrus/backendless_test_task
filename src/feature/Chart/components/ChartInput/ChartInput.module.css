@@ -8,6 +8,13 @@
     margin-bottom: 48px;
 }
 
+.defaultInputField > label > p {
+    margin-bottom: 8px;
+}
+
+.defaultInputField > label {
+    font-family: Roboto sans-serif;
+}
 
 .defaultInputField > label > input {
     position: relative;

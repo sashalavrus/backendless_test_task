@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, ChangeEventHandler } from 'react';
 import { Formik, Form, Field } from 'formik';
 
 // styles
@@ -8,19 +8,27 @@ import styles from './ChartInput.module.css';
 import ValidationSchema from './validationSchema';
 
 type ChartInputProps = {
-    onSubmit: () => void;
+    onSubmit: ({ x, y }: { x: string; y: string }) => void;
 };
 
 export default function ChartInput({ onSubmit }: ChartInputProps) {
-    const [valueX, setValueX] = useState('');
-    const [valueY, setValueY] = useState('');
+    const [valueX, setValueX] = useState<string>(
+        'January, February, March, April, May, June, July'
+    );
+    const [valueY, setValueY] = useState<string>('2, 4, 5, 6, 4, 3, 2');
 
-    const onChangeX = (e, handleChange) => {
+    const onChangeX = (
+        e: ChangeEvent<HTMLInputElement>,
+        handleChange: ChangeEventHandler
+    ) => {
         handleChange(e);
         setValueX(e.target.value);
     };
 
-    const onChangeY = (e, handleChange) => {
+    const onChangeY = (
+        e: ChangeEvent<HTMLInputElement>,
+        handleChange: ChangeEventHandler
+    ) => {
         handleChange(e);
         setValueY(e.target.value);
     };
@@ -33,9 +41,7 @@ export default function ChartInput({ onSubmit }: ChartInputProps) {
                     y: '',
                 }}
                 validationSchema={ValidationSchema}
-                onSubmit={(e) => {
-                    console.log('submit', e);
-                }}
+                onSubmit={() => {}}
             >
                 {({ errors, touched, handleBlur, handleChange }) => (
                     <Form
@@ -50,18 +56,28 @@ export default function ChartInput({ onSubmit }: ChartInputProps) {
                                 <p>X axis labels</p>
                                 <Field
                                     name="x"
-                                    onBlur={(e) => {
+                                    onBlur={(
+                                        e: ChangeEvent<HTMLInputElement>
+                                    ) => {
                                         handleBlur(e);
                                         if (!errors.y && !errors.x) {
                                             onSubmit({ x: valueX, y: valueY });
                                         }
                                     }}
-                                    onChange={(e) => onChangeX(e, handleChange)}
+                                    onChange={(
+                                        e: ChangeEvent<HTMLInputElement>
+                                    ) => onChangeX(e, handleChange)}
                                     value={valueX}
                                 />
                                 {errors.x && touched.x && (
                                     <div className={styles.validationHint}>
                                         {errors.x}
+                                    </div>
+                                )}
+                                {!touched.x && !errors.x && (
+                                    <div className={styles.validationHint}>
+                                        Please make sure, that length of labels
+                                        array are equal to length of data array
                                     </div>
                                 )}
                             </label>
@@ -71,13 +87,17 @@ export default function ChartInput({ onSubmit }: ChartInputProps) {
                                 <p>Y axis data</p>
                                 <Field
                                     name="y"
-                                    onBlur={(e) => {
+                                    onBlur={(
+                                        e: ChangeEvent<HTMLInputElement>
+                                    ) => {
                                         handleBlur(e);
                                         if (!errors.y && !errors.x) {
                                             onSubmit({ x: valueX, y: valueY });
                                         }
                                     }}
-                                    onChange={(e) => onChangeY(e, handleChange)}
+                                    onChange={(
+                                        e: ChangeEvent<HTMLInputElement>
+                                    ) => onChangeY(e, handleChange)}
                                     value={valueY}
                                 />
                                 {errors.y && touched.y && (

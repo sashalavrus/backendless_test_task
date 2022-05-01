@@ -1,4 +1,4 @@
-export const optionsBar = {
+export default {
     plugins: {
         legend: {
             display: false,

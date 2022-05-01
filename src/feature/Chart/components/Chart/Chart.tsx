@@ -1,5 +1,8 @@
 import React from 'react';
 
+// config
+import defaultOption from 'feature/Chart/constants/chartOptions';
+
 import { Line, Bar, Pie, Radar, Doughnut } from 'react-chartjs-2';
 import { chartType, ChartTypes } from 'shared/types/chart';
 import useChartInit from '../../hooks/chartInit';
@@ -7,32 +10,6 @@ import useChartData from '../../hooks/useChartData';
 
 // styles
 import styles from './Chart.module.css';
-
-export const options = {
-    plugins: {
-        legend: {
-            display: false,
-        },
-    },
-    responsive: true,
-    interaction: {
-        mode: 'index' as const,
-        intersect: false,
-    },
-
-    scales: {
-        x: {
-            scales: true,
-            grid: {
-                display: false,
-            },
-        },
-        y: {
-            scales: true,
-            display: false,
-        },
-    },
-};
 
 type ChartProps = {
     chartTypeValue: chartType;
@@ -54,16 +31,17 @@ function Chart({ chartTypeValue, chartData, chartLabels }: ChartProps) {
                 return <Doughnut data={data} />;
             }
             case ChartTypes.LINE: {
-                return <Line options={options} data={data} />;
+                // @ts-ignore
+                return <Line options={defaultOption} data={data} />;
             }
             case ChartTypes.BAR: {
-                return <Bar options={options} data={data} />;
+                return <Bar options={defaultOption} data={data} />;
             }
             case ChartTypes.RADIAL: {
                 return <Radar data={data} />;
             }
             default: {
-                return <Bar options={options} data={data} />;
+                return <Bar options={defaultOption} data={data} />;
             }
         }
     };

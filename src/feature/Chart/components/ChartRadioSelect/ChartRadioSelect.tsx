@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 // types
 import { ChartTypes } from 'shared/types/chart';
@@ -7,10 +7,12 @@ import { ChartTypes } from 'shared/types/chart';
 import styles from './ChartRadioSelect.module.css';
 
 type ChartRadioSelectProps = {
-    onChangeChartType: () => {};
+    onChangeChartType: (e: ChangeEvent<HTMLInputElement>) => void;
 };
 
-export default function ChartRadioSelect({ onChangeChartType }) {
+export default function ChartRadioSelect({
+    onChangeChartType,
+}: ChartRadioSelectProps) {
     return (
         <div className={styles.chartRadioSelectWrapper}>
             <label htmlFor="line">
@@ -27,12 +29,13 @@ export default function ChartRadioSelect({ onChangeChartType }) {
                 <input
                     name="choice"
                     type="radio"
+                    defaultChecked
                     value={ChartTypes.BAR}
                     onChange={onChangeChartType}
                     className={styles.radioInput}
                 />
                 Bar
-            </label>{' '}
+            </label>
             <label htmlFor="pie">
                 <input
                     name="choice"
@@ -42,7 +45,7 @@ export default function ChartRadioSelect({ onChangeChartType }) {
                     className={styles.radioInput}
                 />
                 Pie
-            </label>{' '}
+            </label>
             <label htmlFor="donat">
                 <input
                     name="choice"
@@ -52,7 +55,7 @@ export default function ChartRadioSelect({ onChangeChartType }) {
                     className={styles.radioInput}
                 />
                 Donat
-            </label>{' '}
+            </label>
             <label htmlFor="radial">
                 <input
                     name="choice"

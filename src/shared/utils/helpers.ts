@@ -28,12 +28,4 @@ export const normalizeYAxisInputData = (
 export const isInputArraysLengthValid = (
     labels: Array<string>,
     data: Array<number>
-): boolean => {
-    if (labels.length !== data.length) {
-        alert(
-            'Please make sure, that length of labels array are equal to length of data array'
-        );
-        return false;
-    }
-    return true;
-};
+): boolean => labels.length === data.length;

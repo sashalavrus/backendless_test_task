@@ -53,13 +53,10 @@ export default function ChartInit({ chartTypeValue }: IChartTypes) {
                 Tooltip,
                 Legend
             );
-            console.log('sdfsdfsd');
             return;
         }
         default: {
-            console.log('32423');
             ChartJS.register(ArcElement, Tooltip, Legend);
-            console.log('qqqqqqqqqq');
         }
     }
 }
