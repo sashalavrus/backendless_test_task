@@ -1,0 +1,18 @@
+.chartRadioSelectWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radioInput {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    border: 1px #c4c4c4 solid;
+    margin-right: 24px;
+}
+
+.radioInput:checked {
+    background-color: #88EC86;
+}
