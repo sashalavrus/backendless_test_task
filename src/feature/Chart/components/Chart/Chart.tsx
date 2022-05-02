@@ -2,7 +2,10 @@ import React from 'react';
 import { Line, Bar, Pie, Radar, Doughnut } from 'react-chartjs-2';
 
 // config
-import defaultOption from 'feature/Chart/constants/chartOptions';
+import {
+    defaultOption,
+    lineOption,
+} from 'feature/Chart/constants/chartOptions';
 
 // types
 import { chartType, ChartTypes } from 'shared/types/chart';
@@ -36,7 +39,7 @@ export default function Chart({
             }
             case ChartTypes.LINE: {
                 // @ts-ignore
-                return <Line options={defaultOption} data={data} />;
+                return <Line options={lineOption} data={data} />;
             }
             case ChartTypes.BAR: {
                 return <Bar options={defaultOption} data={data} />;
