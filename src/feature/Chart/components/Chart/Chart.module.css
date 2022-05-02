@@ -4,3 +4,19 @@
     padding: 24px;
     margin-bottom: 48px;
 }
+
+@media (max-width: 1023px) {
+    .chartWrapper {
+        width: 700px;
+        padding: 18px 16px 36px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .chartWrapper {
+        width: 350px;
+        padding: 4px;
+
+    }
+}

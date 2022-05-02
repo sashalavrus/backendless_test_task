@@ -1,14 +1,20 @@
 import React, { ChangeEvent, useState } from 'react';
-import Container from '../shared/components/Container/Container';
-import Chart from '../feature/Chart/components/Chart/Chart';
-import ChartInput from '../feature/Chart/components/ChartInput/ChartInput';
+
+// helpers
 import {
     isInputArraysLengthValid,
     normalizeXAxisInputData,
     normalizeYAxisInputData,
-} from '../shared/utils/helpers';
-import ChartRadioSelect from '../feature/Chart/components/ChartRadioSelect/ChartRadioSelect';
-import { chartType, ChartTypes } from '../shared/types/chart';
+} from 'shared/utils/helpers';
+
+// types
+import { chartType, ChartTypes } from 'shared/types/chart';
+
+// components
+import ChartRadioSelect from 'feature/Chart/components/ChartRadioSelect/ChartRadioSelect';
+import Container from 'shared/components/Container/Container';
+import Chart from 'feature/Chart/components/Chart/Chart';
+import ChartInput from 'feature/Chart/components/ChartInput/ChartInput';
 
 const initialChartData = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],

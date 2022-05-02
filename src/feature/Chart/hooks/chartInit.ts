@@ -11,6 +11,8 @@ import {
     RadialLinearScale,
     Tooltip,
 } from 'chart.js';
+
+// types
 import { ChartTypes, IChartTypes } from 'shared/types/chart';
 
 export default function ChartInit({ chartTypeValue }: IChartTypes) {

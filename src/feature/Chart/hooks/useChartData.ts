@@ -1,5 +1,12 @@
-import { chartType, ChartTypes } from 'shared/types/chart';
+import { useMemo } from 'react';
+
+// helpers
 import { getRandomRGBColorArray } from 'shared/utils/helpers';
+
+// types
+import { chartType, ChartTypes } from 'shared/types/chart';
+
+import ChartInit from './chartInit';
 
 type useChartDataProps = {
     chartLabels: Array<string>;
@@ -12,8 +19,12 @@ export default function useChartData({
     chartData,
     chartTypeValue,
 }: useChartDataProps) {
-    const { colorArray, colorArrayWithOpacity } =
-        getRandomRGBColorArray(chartLabels);
+    const { colorArray, colorArrayWithOpacity } = useMemo(
+        () => getRandomRGBColorArray(chartLabels),
+        [chartLabels.length]
+    );
+
+    useMemo(() => ChartInit({ chartTypeValue }), [chartTypeValue]);
 
     switch (chartTypeValue) {
         case ChartTypes.PIE: {
