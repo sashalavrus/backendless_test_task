@@ -1,4 +1,4 @@
-export default {
+export const defaultOption = {
     plugins: {
         legend: {
             display: false,
@@ -19,6 +19,18 @@ export default {
         },
         y: {
             scales: true,
+            display: false,
+        },
+    },
+};
+
+export const lineOption = {
+    responsive: true,
+    plugins: {
+        legend: {
+            position: 'top' as const,
+        },
+        title: {
             display: false,
         },
     },

@@ -58,6 +58,7 @@ export default function useChartData({
                 labels: chartLabels,
                 datasets: [
                     {
+                        label: 'Dataset',
                         data: chartData,
                         backgroundColor: 'rgba(48, 213, 200, 0.5)',
                         borderColor: 'rgb(48, 213, 200)',
