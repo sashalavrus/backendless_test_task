@@ -37,8 +37,8 @@ export default function ChartInput({ onSubmit }: ChartInputProps) {
         <div className={styles.formStyles}>
             <Formik
                 initialValues={{
-                    x: '',
-                    y: '',
+                    x: 'January, February, March, April, May, June, July',
+                    y: '2, 4, 5, 6, 4, 3, 2',
                 }}
                 validationSchema={ValidationSchema}
                 onSubmit={() => {}}

@@ -1,12 +1,14 @@
 import React from 'react';
+import { Line, Bar, Pie, Radar, Doughnut } from 'react-chartjs-2';
 
 // config
 import defaultOption from 'feature/Chart/constants/chartOptions';
 
-import { Line, Bar, Pie, Radar, Doughnut } from 'react-chartjs-2';
+// types
 import { chartType, ChartTypes } from 'shared/types/chart';
-import useChartInit from '../../hooks/chartInit';
-import useChartData from '../../hooks/useChartData';
+
+// hooks
+import useChartData from 'feature/Chart/hooks/useChartData';
 
 // styles
 import styles from './Chart.module.css';
@@ -18,8 +20,6 @@ type ChartProps = {
 };
 
 function Chart({ chartTypeValue, chartData, chartLabels }: ChartProps) {
-    useChartInit({ chartTypeValue });
-
     const data = useChartData({ chartLabels, chartData, chartTypeValue });
 
     const renderChart = (): React.ReactElement => {

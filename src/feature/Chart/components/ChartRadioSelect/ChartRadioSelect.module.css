@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .chartRadioSelectWrapper > label {
@@ -24,4 +25,13 @@
 
 .radioInput:checked {
     background-color: #88EC86;
+}
+
+
+@media (max-width: 768px) {
+    .chartRadioSelectWrapper > label {
+        margin-bottom: 8px;
+
+    }
+    
 }
