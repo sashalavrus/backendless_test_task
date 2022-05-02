@@ -19,7 +19,11 @@ type ChartProps = {
     chartLabels: Array<string>;
 };
 
-function Chart({ chartTypeValue, chartData, chartLabels }: ChartProps) {
+export default function Chart({
+    chartTypeValue,
+    chartData,
+    chartLabels,
+}: ChartProps) {
     const data = useChartData({ chartLabels, chartData, chartTypeValue });
 
     const renderChart = (): React.ReactElement => {
@@ -48,5 +52,3 @@ function Chart({ chartTypeValue, chartData, chartLabels }: ChartProps) {
 
     return <div className={styles.chartWrapper}>{renderChart()}</div>;
 }
-
-export default Chart;

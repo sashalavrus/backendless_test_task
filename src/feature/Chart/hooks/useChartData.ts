@@ -1,6 +1,11 @@
-import { chartType, ChartTypes } from 'shared/types/chart';
-import { getRandomRGBColorArray } from 'shared/utils/helpers';
 import { useMemo } from 'react';
+
+// helpers
+import { getRandomRGBColorArray } from 'shared/utils/helpers';
+
+// types
+import { chartType, ChartTypes } from 'shared/types/chart';
+
 import ChartInit from './chartInit';
 
 type useChartDataProps = {
